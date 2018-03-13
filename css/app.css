@@ -154,7 +154,7 @@ textarea {
     /* box-sizing: border-box; */
 }
 
-.show-roman-nums {
+.hide-roman-nums {
     visibility: hidden;
 }
 
@@ -170,6 +170,8 @@ textarea {
     padding:0!important;
     font: inherit;
     cursor: pointer;
+    border-bottom: 1px solid blue;
+    color: blue;
     outline: none;
 }
 

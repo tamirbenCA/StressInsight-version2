@@ -42,10 +42,12 @@ export default {
             </table>
         </div>
         </br>
-        <button class="roman-btn" :class="showRomanBtn" @click="displayRomanNums">הצג סרגל ספרות רומיות</button>
-        <div :class="showRomanNums">
-            <h1> סרגל ספרות רומיות </h1>
-            <p class="roman-nums">1. I; 2. II; 3. III; 4. IV; 5. V; 6. VI</p>
+        <div v-if="taskState!=='task-how'">
+            <button class="roman-btn" :class="showRomanBtn" @click="displayRomanNums">הצג סרגל ספרות רומיות</button>
+            <div :class="showRomanNums">
+                <h1> סרגל ספרות רומיות </h1>
+                <p class="roman-nums">1. I; 2. II; 3. III; 4. IV; 5. V; 6. VI</p>
+            </div>
         </div>
         <div v-if="taskState==='task-show'">
             <input type="submit" value="פתרתי" @click=solveTask />

@@ -7,14 +7,12 @@ export default {
         <router-link to='/' tag="button">נבדק חדש</router-link>
     </section>
     `,
-    data() {
-        return {
-        }
-    },
     created() {
-        surveyService.saveSubject();
         if (!surveyService.isCurrUser()) {
             this.$router.push('/');
         }
+    },
+    mounted() {
+        surveyService.saveSubject();
     }
 }

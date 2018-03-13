@@ -106,11 +106,7 @@ export default {
             this.coinsAvg = coinsTotal / coinsSuccess;
             this.coinsSuccessRate = ((coinsSuccess / this.rawData.length) * 100)
             this.matchAvg = matchTotal / matchSuccess;
-            console.log('matchTotal:', matchTotal);
-            console.log('matchSuccess:', matchSuccess);
-            console.log('matchAvg:', this.matchAvg);
             this.matchSuccessRate = ((matchSuccess / this.rawData.length) * 100)
-
         }
     },
     computed: {

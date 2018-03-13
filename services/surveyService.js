@@ -141,8 +141,7 @@ function getPromoTimer() {
 }
 
 function getTaskTimer() {
-    return 1000 * 60 * 0.1
-    // return 1000 * 60 * gTaskTimer
+    return 1000 * 60 * gTaskTimer
 }
 
 // not in use for now. it can be reactivate in line 100;

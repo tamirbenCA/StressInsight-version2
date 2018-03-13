@@ -1,0 +1,178 @@
+body {
+    direction: rtl;
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+}
+
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 80vh;
+    justify-content: space-between;
+}
+
+#user-form {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.gender-picker {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.coin-png {
+    width: 50px;
+    height: 50px;
+}
+
+.match-png {
+    height: 50px;
+}
+
+td {
+    width: 50px;
+    height: 50px;
+}
+
+input {
+    padding: 5px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+h4, h5 {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.hide-number {
+    visibility: hidden;
+}
+
+.hide-error {
+    visibility: hidden;
+}
+
+.error-display {
+    width: 176px;
+    display: flex;
+}
+
+.span-x {
+    color: red;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.x-img {
+    margin: auto;
+    margin-top: 10px;
+}
+
+.promo-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black
+}
+
+.logo-img {
+    height: 100px;
+}
+
+.admin-btn {
+    padding: 5px;
+    margin-left: 10px;
+    color: white;
+    border-color: transparent;
+}
+
+.btn-red {
+    background-color: #ff2b56;
+}
+
+.btn-green {
+    background-color: #23d160;
+}
+
+.btn-blue {
+    background-color: #1496ed;
+}
+
+.btn-grey {
+    color: black;
+}
+
+#timer-progress {
+    width: 100%;
+    /* background-color: #4CAF50; */
+    background-color: #ff2b56;
+}
+
+#timer-bar {
+    width: 1%;
+    height: 30px;
+    margin-top: 10px;
+    background-color: #ddd;
+}
+
+.task-how {
+    width: 506px;
+}
+
+.radio-btns {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 500px;
+}
+
+.stat-div {
+    border: 1px solid black;
+    padding: 10px;
+    outline: 1px solid;
+    /* margin: 5px; */
+    /* box-sizing: border-box; */
+}
+
+.show-roman-nums {
+    visibility: hidden;
+}
+
+.roman-nums {
+    direction: ltr;
+    text-align: right;
+}
+
+.roman-btn {
+    background:none!important;
+    color:inherit;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+.stat-section {
+    margin-bottom: 20px;
+}

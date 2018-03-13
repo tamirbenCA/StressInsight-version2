@@ -42,8 +42,8 @@ export default {
             </table>
         </div>
         </br>
-        <button class="roman-btn" @click="displayMsg">סרגל ספרות רומיות</button>
-        <div class="show-roman-nums">
+        <button class="roman-btn" :class="showRomanBtn" @click="displayRomanNums">הצג סרגל ספרות רומיות</button>
+        <div :class="showRomanNums">
             <h1> סרגל ספרות רומיות </h1>
             <p class="roman-nums">1. I; 2. II; 3. III; 4. IV; 5. V; 6. VI</p>
         </div>
@@ -83,16 +83,24 @@ export default {
             comment: null,
             timer: surveyService.getTaskTimer(),
             timeOut: null,
-            timeInterval: null
+            timeInterval: null,
+            msgDisplay: false
         }
     },
     computed: {
         showRomanNums() {
-            // if (this.msgDisplay) {
-                // return 'show-number'
-            // } else {
-                // return 'hide-number'
-            // }
+            if (this.msgDisplay) {
+                return 'show-roman-nums'
+            } else {
+                return 'hide-roman-nums'
+            }
+        },
+        showRomanBtn() {
+            if (!this.msgDisplay) {
+                return 'show-roman-nums'
+            } else {
+                return 'hide-roman-nums'
+            }
         },
         shouldShowTable() {
             if (this.taskState === 'task-show' || this.taskState === 'task-play') {
@@ -101,13 +109,11 @@ export default {
         },
     },
     methods: {
-        displayMsg() {
-            clearTimeout(this.timeInterval)
-            document.querySelector('.show-roman-nums').setAttribute('style', 'visibility:visible');
-            document.querySelector('.roman-btn').setAttribute('style', 'visibility:hidden');
+        displayRomanNums() {
+            clearTimeout(this.timeInterval);
+            this.msgDisplay = true;
             this.timeInterval = setTimeout(_ => { 
-                document.querySelector('.show-roman-nums').setAttribute('style', 'visibility:hidden') 
-                document.querySelector('.roman-btn').setAttribute('style', 'visibility:visible');
+                this.msgDisplay = false;
             }, 3000)
         },
         submitReport() {
@@ -165,13 +171,6 @@ export default {
             this.moveCount++;
             if (this.moveCount === 1) {
                 this.endTask();
-            }
-        }
-    },
-    computed: {
-        shouldShowTable() {
-            if (this.taskState === 'task-show' || this.taskState === 'task-play') {
-                return true;
             }
         }
     },

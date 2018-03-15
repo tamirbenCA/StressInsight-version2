@@ -27,16 +27,16 @@ export default {
                 <div class="coinsStat stat-div">
                     <h4>משימת המטבעות:</h4>
                     <p>אחוז הנבדקים שפתר בהצלחה: {{coinsSuccessRate}}%</p>
-                    <p>זמן הפתרון הארוך ביותר: {{coinsMax}}ms</p>
-                    <p>זמן הפתרון הקצר ביותר: {{coinsMin}}ms</p>
-                    <p>זמן הפתרון הממוצע: {{coinsAvg}}ms</p>
+                    <p v-if="coinsMax > 0">זמן הפתרון הארוך ביותר: {{coinsMax}}ms</p>
+                    <p v-if="coinsMin < Infinity">זמן הפתרון הקצר ביותר: {{coinsMin}}ms</p>
+                    <p v-if="coinsAvg === coinsAvg">זמן הפתרון הממוצע: {{coinsAvg}}ms</p>
                 </div>
                 <div class="matchStat stat-div">
                     <h4>משימת הגפרורים:</h4>
                     <p>אחוז הנבדקים שפתר בהצלחה: {{matchSuccessRate}}%</p>
-                    <p>זמן הפתרון הארוך ביותר: {{matchMax}}ms</p>
-                    <p>זמן הפתרון הקצר ביותר: {{matchMin}}ms</p>
-                    <p>זמן הפתרון הממוצע: {{matchAvg}}ms</p>
+                    <p v-if="matchMax > 0">זמן הפתרון הארוך ביותר: {{matchMax}}ms</p>
+                    <p v-if="matchMin < Infinity">זמן הפתרון הקצר ביותר: {{matchMin}}ms</p>
+                    <p v-if="matchAvg === matchAvg">זמן הפתרון הממוצע: {{matchAvg}}ms</p>
                 </div>
             </div>
         </div>

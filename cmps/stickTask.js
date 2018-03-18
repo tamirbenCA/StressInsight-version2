@@ -16,27 +16,25 @@ export default {
             <p v-if="taskState==='task-play'">פתור את התרגיל ע"י גרירת מקל אחד עם העכבר.</p>
             <table id="stick-table" @drop="drop" @dragover="allowDrop"  v-if="shouldShowTable">
                 <tr>
-                    <td :class="setClassName(0, 0)" style="textAlign:center">
+                    <td :class="setClassName(0)">
                         <img src="img/stick.png" :id="setImgId(0, 0)" class="stick-png" draggable="true" @dragstart="drag"/>
                     </td>
-                    <td :class="setClassName(0, 1)" style="textAlign:center">
+                    <td :class="setClassName(1)">
                         <img src="img/stick.png" :id="setImgId(1, 0)" class="stick-png" style="transform:rotate(90deg)" draggable="true" @dragstart="drag"/>
                     </td>
-                    <td :class="setClassName(0, 2)" style="textAlign:center">
+                    <td :class="setClassName(2)">
                         <img src="img/stick.png" :id="setImgId(2, 0)" class="stick-png" draggable="true" @dragstart="drag"/>
                         <img src="img/stick.png" :id="setImgId(2, 1)" class="stick-png" draggable="true" @dragstart="drag"/>
                         <img src="img/stick.png" :id="setImgId(2, 2)" class="stick-png" draggable="true" @dragstart="drag"/>
                     </td>
-                    <td :class="setClassName(0, 3)" style="textAlign:center">
-                        <img src="img/stick.png" :id="setImgId(3, 1)" class="stick-png" style="transform:rotate(90deg)" draggable="true" @dragstart="drag"/>
-                        <img src="img/stick.png" :id="setImgId(3, 0)" class="stick-png" style="transform:rotate(90deg); paddingBottom:20px" draggable="true" @dragstart="drag"/>
+                    <td :class="setClassName(3)">
+                        <img src="img/stick.png" :id="setImgId(3, 0)" class="stick-png" style="transform:rotate(90deg)" draggable="true" @dragstart="drag"/>
+                        <img src="img/stick.png" :id="setImgId(3, 1)" class="stick-png" style="transform:rotate(90deg); paddingBottom:20px" draggable="true" @dragstart="drag"/>
                     </td>
-                    <td :class="setClassName(0, 4)" style="textAlign:center">
-                        <img src="img/stick.png" :id="setImgId(3, 1)" class="stick-png" style="transform:rotate(10deg)" draggable="true" @dragstart="drag"/>
-                        <img src="img/stick.png" :id="setImgId(3, 0)" class="stick-png" style="transform:rotate(160deg)" draggable="true" @dragstart="drag"/>                        
-                    </td>
-                    <td :class="setClassName(0, 5)" style="textAlign:right">
-                        <img src="img/stick.png" :id="setImgId(5, 0)" class="stick-png" style="marginRight:-10px" draggable="true" @dragstart="drag"/>
+                    <td :class="setClassName(4)">
+                        <img src="img/stick.png" :id="setImgId(4, 0)" class="stick-png" style="transform:rotate(10deg)" draggable="true" @dragstart="drag"/>                        
+                        <img src="img/stick.png" :id="setImgId(4, 1)" class="stick-png" style="transform:rotate(160deg)" draggable="true" @dragstart="drag"/>
+                        <img src="img/stick.png" :id="setImgId(4, 2)" class="stick-png" style="marginRight:7px" draggable="true" @dragstart="drag"/>
                     </td>
                 </tr>
             </table>
@@ -121,15 +119,15 @@ export default {
         submitReport() {
             this.taskState = 'task-play'
         },
-        setClassName(i, j) {
-            return 'cell-' + i + '-' + j;
+        setClassName(i) {
+            return 'stick-cell cell-' + i;
         },
         setImgId(i, j) {
           return 'img-' + i + '-' + j;  
         },
         endTask() {
-            var cell1 = document.querySelector('.cell-0-1').childElementCount;
-            var cell2 = document.querySelector('.cell-0-3').childElementCount;
+            var cell1 = document.querySelector('.cell-1').childElementCount;
+            var cell2 = document.querySelector('.cell-3').childElementCount;
 
             if (cell1 === 2 && cell2 === 1) {
                 this.solved = true;

@@ -31,7 +31,7 @@ body {
     height: 50px;
 }
 
-.match-png {
+.stick-png {
     height: 50px;
 }
 
@@ -161,6 +161,10 @@ textarea {
 .roman-nums {
     direction: ltr;
     text-align: right;
+}
+
+.roman-tab {
+    margin-left: 40px;
 }
 
 .roman-btn {

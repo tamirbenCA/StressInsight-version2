@@ -1,7 +1,7 @@
 import homePage from './cmps/homePage.js'
 import mathPromo from './cmps/mathPromo.js'
 import coinsTask from './cmps/coinsTask.js'
-import matchTask from './cmps/matchTask.js'
+import stickTask from './cmps/stickTask.js'
 import thankYou from './cmps/thankYou.js'
 import admin from './cmps/admin.js'
 
@@ -20,8 +20,8 @@ const routes = [
         component: coinsTask
     },
     {
-        path: '/matchtask',
-        component: matchTask
+        path: '/sticktask',
+        component: stickTask
     },
     {
         path: '/thankyou',

@@ -14,7 +14,7 @@ var gTaskTimer = null;
 var gCurrUser = null;
 var gPromo = null;
 var gCoinsTask = null;
-var gMatchTask = null;
+var gStickTask = null;
 
 function initExp () {
     getAuth();
@@ -75,7 +75,7 @@ function getAuth() {
 }
 
 function saveSubject() {
-    var subject = {...gCurrUser, ...gPromo, ...gCoinsTask, ...gMatchTask}
+    var subject = {...gCurrUser, ...gPromo, ...gCoinsTask, ...gStickTask}
     gUsersAnss.push(subject);
     // console.log('gUsersAnss:', gUsersAnss);
     storageService.saveToStorage(DATA_KEY, gUsersAnss);
@@ -104,9 +104,9 @@ function isCurrUser() {
 
 function setPromo(promoRes) {
     var promo = {
-        promoErrorCount: promoRes.errorCount,
-        promoStartTime: new Date(promoRes.startTime).toLocaleTimeString('en-GB'),
-        promoEndTime: new Date(promoRes.endTime).toLocaleTimeString('en-GB')
+        mathErrorCount: promoRes.errorCount,
+        mathStartTime: new Date(promoRes.startTime).toLocaleTimeString('en-GB'),
+        mathEndTime: new Date(promoRes.endTime).toLocaleTimeString('en-GB')
     }
     gPromo = promo;
     // console.log('promo:', gPromo);
@@ -114,8 +114,10 @@ function setPromo(promoRes) {
 
 function setCoinsTask(taskRes) {
     var coinsTask = {
+        coinsTaskStartTime: new Date(taskRes.startTime).toLocaleTimeString('en-GB'),
+        coinsTaskEndTime: new Date(taskRes.endTime).toLocaleTimeString('en-GB'),
+        coinsTaskTimeToSolution: taskRes.endTime - taskRes.startTime,
         // taskTimeToSolution: _millisToMinutesAndSeconds(taskRes.timeToSolution),
-        coinsTaskTimeToSolution: taskRes.timeToSolution,
         coinsTaskSolved: taskRes.solved,
         coinsTaskSelfReport: taskRes.selfReport,
         coinsTaskComment: taskRes.comment
@@ -124,16 +126,18 @@ function setCoinsTask(taskRes) {
     // console.log('coins task:', gCoinsTask)
 }
 
-function setMatchTask(taskRes) {
-    var matchTask = {
+function setStickTask(taskRes) {
+    var stickTask = {
+        stickTaskStartTime: new Date(taskRes.startTime).toLocaleTimeString('en-GB'),
+        stickTaskEndTime: new Date(taskRes.endTime).toLocaleTimeString('en-GB'),
+        stickTaskTimeToSolution: taskRes.endTime - taskRes.startTime,
         // taskTimeToSolution: _millisToMinutesAndSeconds(taskRes.timeToSolution),
-        matchTaskTimeToSolution: taskRes.timeToSolution,
-        matchTaskSolved: taskRes.solved,
-        matchTaskSelfReport: taskRes.selfReport,
-        matchTaskComment: taskRes.comment
+        stickTaskSolved: taskRes.solved,
+        stickTaskSelfReport: taskRes.selfReport,
+        stickTaskComment: taskRes.comment
     }
-    gMatchTask = matchTask;
-    // console.log('match task:', gMatchTask)
+    gStickTask = stickTask;
+    // console.log('stick task:', gStickTask)
 }
 
 function getPromoTimer() {
@@ -156,12 +160,12 @@ function _getId() {
 }
 
 function _shouldStress() {
-    // this code is predictable odd numbers stress and evan numbers non-stress:
-    // if (gUsersAnss.length % 2 === 0) return true;
-    // else return false;
+    // this code is predictable evan numbers stress and odd numbers non-stress:
+    if (gUsersAnss.length % 2 === 0) return true;
+    else return false;
     
     // this code is mathematical randomm 50:50 chance:
-    return Math.random() < 0.5;
+    // return Math.random() < 0.5;
 }
 
 function clearLocalStorage() {
@@ -252,7 +256,7 @@ export default {
     isCurrUserStress,
     setPromo,
     setCoinsTask,
-    setMatchTask,
+    setStickTask,
     clearLocalStorage,
     exportToCsv,
     setPromoTimer,

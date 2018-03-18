@@ -33,13 +33,13 @@ export default {
                         <p>זמן הפתרון הממוצע: {{coinsAvg}}ms</p>
                     </div>
                 </div>
-                <div class="matchStat stat-div">
-                    <h4>משימת הגפרורים:</h4>
-                    <p>אחוז הנבדקים שפתר בהצלחה: {{matchSuccessRate}}%</p>
-                    <div v-if="matchSuccessRate > 0">
-                        <p>זמן הפתרון הארוך ביותר: {{matchMax}}ms</p>
-                        <p>זמן הפתרון הקצר ביותר: {{matchMin}}ms</p>
-                        <p>זמן הפתרון הממוצע: {{matchAvg}}ms</p>
+                <div class="stickStat stat-div">
+                    <h4>משימת המקלות:</h4>
+                    <p>אחוז הנבדקים שפתר בהצלחה: {{stickSuccessRate}}%</p>
+                    <div v-if="stickSuccessRate > 0">
+                        <p>זמן הפתרון הארוך ביותר: {{stickMax}}ms</p>
+                        <p>זמן הפתרון הקצר ביותר: {{stickMin}}ms</p>
+                        <p>זמן הפתרון הממוצע: {{stickAvg}}ms</p>
                     </div>
                 </div>
             </div>
@@ -53,10 +53,10 @@ export default {
             coinsMax: 0,
             coinsAvg: 0,
             coinsSuccessRate: 0,
-            matchMin: Infinity,
-            matchMax: 0,
-            matchAvg: 0,
-            matchSuccessRate: 0,
+            stickMin: Infinity,
+            stickMax: 0,
+            stickAvg: 0,
+            stickSuccessRate: 0,
         }
     },
     methods: {
@@ -82,8 +82,8 @@ export default {
         taskTimeStat() {
             var coinsTotal = 0;
             var coinsSuccess = 0;
-            var matchTotal = 0;
-            var matchSuccess = 0;
+            var stickTotal = 0;
+            var stickSuccess = 0;
 
             this.rawData.forEach(subject => {
                 if (subject.coinsTaskSolved) {
@@ -96,21 +96,21 @@ export default {
                     };
                     coinsTotal += subject.coinsTaskTimeToSolution;
                 }
-                if (subject.matchTaskSolved) {
-                    matchSuccess++;
-                    if (subject.matchTaskTimeToSolution < this.matchMin) {
-                        this.matchMin = subject.matchTaskTimeToSolution;
+                if (subject.stickTaskSolved) {
+                    stickSuccess++;
+                    if (subject.stickTaskTimeToSolution < this.stickMin) {
+                        this.stickMin = subject.stickTaskTimeToSolution;
                     };
-                    if (subject.matchTaskTimeToSolution > this.matchMax) {
-                        this.matchMax = subject.matchTaskTimeToSolution;
+                    if (subject.stickTaskTimeToSolution > this.stickMax) {
+                        this.stickMax = subject.stickTaskTimeToSolution;
                     };
-                    matchTotal += subject.matchTaskTimeToSolution;
+                    stickTotal += subject.stickTaskTimeToSolution;
                 }
             });
-            this.coinsAvg = coinsTotal / coinsSuccess;
+            this.coinsAvg = Math.round(coinsTotal / coinsSuccess);
             this.coinsSuccessRate = ((coinsSuccess / this.rawData.length) * 100)
-            this.matchAvg = matchTotal / matchSuccess;
-            this.matchSuccessRate = ((matchSuccess / this.rawData.length) * 100)
+            this.stickAvg = Math.round(stickTotal / stickSuccess);
+            this.stickSuccessRate = ((stickSuccess / this.rawData.length) * 100)
         }
     },
     computed: {

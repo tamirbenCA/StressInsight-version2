@@ -114,7 +114,9 @@ export default {
 
             var taskRes = { 
                 moveCount: this.moveCount,
-                timeToSolution: this.endTime - this.startTime,
+                startTime: this.startTime,
+                endTime: this.endTime,
+                // timeToSolution: this.endTime - this.startTime,
                 solved: this.solved,
                 selfReport: this.selfReport,
                 comment: this.comment
@@ -125,7 +127,7 @@ export default {
             }
 
             surveyService.setCoinsTask(taskRes)
-            setTimeout(_ => { this.$router.push('/matchtask')},3000);
+            setTimeout(_ => { this.$router.push('/sticktask')},3000);
         },
         solveTask() {
             clearTimeout(this.timeOut);

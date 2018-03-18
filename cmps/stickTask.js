@@ -4,49 +4,49 @@ export default {
     template: `
     <section>
         <div v-if="taskState==='task-show'">
-            <p>לפניך 10 גפרורים היוצרים משפט שקר חשבוני.<p>
-            <p>כאשר ידיך נשארות במקום, נסה לדמיין הזזת גפרור אחד בלבד כך שהמשפט ההתחלתי יהפוך למשפט אמת חשבוני.</p>
-            <p>את המגפרור ניתן להזיז למקום חדש בתוך המשוואה, לא ניתן לסובב אותו.</p>
-            <p>גפרור אחד בלבד יכול לזוז.</p>
-            <p>לא ניתן להיפטר מגפרור, כלומר אין להוציא אותו לגמרי מהמשוואה, מותר רק לשנות מיקום של גפרור.</p>
+            <p>לפניך מקלות היוצרים משפט שקר חשבוני.<p>
+            <p>כאשר ידיך נשארות במקום, נסה לדמיין הזזת מקל אחד בלבד כך שהמשפט ההתחלתי יהפוך למשפט אמת חשבוני.</p>
+            <p>את המקל ניתן להזיז למקום חדש בתוך המשוואה, לא ניתן לסובב אותו.</p>
+            <p>מקל אחד בלבד יכול לזוז.</p>
+            <p>לא ניתן להיפטר ממקל, כלומר אין להוציא אותו לגמרי מהמשוואה, מותר רק לשנות מיקום של מקל.</p>
             <p>התוצאה חייבת להיות נכונה מבחינה חשבונית.</p>
             <p>כאשר אתה חושב שהצלחת, לחץ על כפתור "פתרתי"</p>
         </div>
         <div>
-            <p v-if="taskState==='task-play'">פתור את התרגיל ע"י גרירת גפרור אחד עם העכבר.</p>
-            <table id="match-table" @drop="drop" @dragover="allowDrop"  v-if="shouldShowTable">
+            <p v-if="taskState==='task-play'">פתור את התרגיל ע"י גרירת מקל אחד עם העכבר.</p>
+            <table id="stick-table" @drop="drop" @dragover="allowDrop"  v-if="shouldShowTable">
                 <tr>
                     <td :class="setClassName(0, 0)" style="textAlign:center">
-                        <img src="img/match.png" :id="setImgId(0, 0)" class="match-png" draggable="true" @dragstart="drag"/>
+                        <img src="img/stick.png" :id="setImgId(0, 0)" class="stick-png" draggable="true" @dragstart="drag"/>
                     </td>
                     <td :class="setClassName(0, 1)" style="textAlign:center">
-                        <img src="img/match.png" :id="setImgId(1, 0)" class="match-png" style="transform:rotate(90deg)" draggable="true" @dragstart="drag"/>
+                        <img src="img/stick.png" :id="setImgId(1, 0)" class="stick-png" style="transform:rotate(90deg)" draggable="true" @dragstart="drag"/>
                     </td>
                     <td :class="setClassName(0, 2)" style="textAlign:center">
-                        <img src="img/match.png" :id="setImgId(2, 0)" class="match-png" draggable="true" @dragstart="drag"/>
-                        <img src="img/match.png" :id="setImgId(2, 1)" class="match-png" draggable="true" @dragstart="drag"/>
-                        <img src="img/match.png" :id="setImgId(2, 2)" class="match-png" draggable="true" @dragstart="drag"/>
+                        <img src="img/stick.png" :id="setImgId(2, 0)" class="stick-png" draggable="true" @dragstart="drag"/>
+                        <img src="img/stick.png" :id="setImgId(2, 1)" class="stick-png" draggable="true" @dragstart="drag"/>
+                        <img src="img/stick.png" :id="setImgId(2, 2)" class="stick-png" draggable="true" @dragstart="drag"/>
                     </td>
                     <td :class="setClassName(0, 3)" style="textAlign:center">
-                        <img src="img/match.png" :id="setImgId(3, 1)" class="match-png" style="transform:rotate(90deg)" draggable="true" @dragstart="drag"/>
-                        <img src="img/match.png" :id="setImgId(3, 0)" class="match-png" style="transform:rotate(90deg); paddingBottom:20px" draggable="true" @dragstart="drag"/>
+                        <img src="img/stick.png" :id="setImgId(3, 1)" class="stick-png" style="transform:rotate(90deg)" draggable="true" @dragstart="drag"/>
+                        <img src="img/stick.png" :id="setImgId(3, 0)" class="stick-png" style="transform:rotate(90deg); paddingBottom:20px" draggable="true" @dragstart="drag"/>
                     </td>
                     <td :class="setClassName(0, 4)" style="textAlign:center">
-                        <img src="img/match.png" :id="setImgId(3, 1)" class="match-png" style="transform:rotate(10deg)" draggable="true" @dragstart="drag"/>
-                        <img src="img/match.png" :id="setImgId(3, 0)" class="match-png" style="transform:rotate(160deg)" draggable="true" @dragstart="drag"/>                        
+                        <img src="img/stick.png" :id="setImgId(3, 1)" class="stick-png" style="transform:rotate(10deg)" draggable="true" @dragstart="drag"/>
+                        <img src="img/stick.png" :id="setImgId(3, 0)" class="stick-png" style="transform:rotate(160deg)" draggable="true" @dragstart="drag"/>                        
                     </td>
                     <td :class="setClassName(0, 5)" style="textAlign:right">
-                        <img src="img/match.png" :id="setImgId(5, 0)" class="match-png" style="marginRight:-10px" draggable="true" @dragstart="drag"/>
+                        <img src="img/stick.png" :id="setImgId(5, 0)" class="stick-png" style="marginRight:-10px" draggable="true" @dragstart="drag"/>
                     </td>
                 </tr>
             </table>
         </div>
         </br>
-        <div v-if="taskState!=='task-how'">
+        <div v-if="taskState==='task-show'">
             <button class="roman-btn" :class="showRomanBtn" @click="displayRomanNums">הצג סרגל ספרות רומיות</button>
             <div :class="showRomanNums">
                 <h1> סרגל ספרות רומיות </h1>
-                <p class="roman-nums">1. I; 2. II; 3. III; 4. IV; 5. V; 6. VI</p>
+                <p class="roman-nums"><span class="roman-tab">1-I</span> <span class="roman-tab">2-II</span> <span class="roman-tab">3-III</span> <span class="roman-tab">4-IV</span> <span class="roman-tab">5-V</span> <span class="roman-tab">6-VI</span></p>
             </div>
         </div>
         <div v-if="taskState==='task-show'">
@@ -127,7 +127,6 @@ export default {
         setImgId(i, j) {
           return 'img-' + i + '-' + j;  
         },
-        
         endTask() {
             var cell1 = document.querySelector('.cell-0-1').childElementCount;
             var cell2 = document.querySelector('.cell-0-3').childElementCount;
@@ -140,7 +139,9 @@ export default {
 
             var taskRes = { 
                 moveCount: this.moveCount,
-                timeToSolution: this.endTime - this.startTime,
+                startTime: this.startTime,
+                endTime: this.endTime,
+                // timeToSolution: this.endTime - this.startTime,
                 solved: this.solved,
                 selfReport: this.selfReport,
                 comment: this.comment
@@ -150,7 +151,7 @@ export default {
                 taskRes.timeToSolution = null;
             }
 
-            surveyService.setMatchTask(taskRes)
+            surveyService.setStickTask(taskRes)
             setTimeout(_ => { this.$router.push('/thankyou')},3000);
         },
         solveTask() {

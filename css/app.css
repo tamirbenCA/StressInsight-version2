@@ -35,6 +35,14 @@ body {
     height: 50px;
 }
 
+.stick90-png {
+    width: 50px;
+}
+
+.stick-cell {
+    text-align: center;
+}
+
 td {
     width: 50px;
     height: 50px;

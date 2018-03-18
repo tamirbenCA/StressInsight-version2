@@ -122,9 +122,9 @@ export default {
                 comment: this.comment
             }
 
-            if (taskRes.timeToSolution < 0) {
-                taskRes.timeToSolution = null;
-            }
+            // if (taskRes.timeToSolution < 0) {
+            //     taskRes.timeToSolution = null;
+            // }
 
             surveyService.setCoinsTask(taskRes)
             setTimeout(_ => { this.$router.push('/sticktask')},3000);

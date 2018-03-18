@@ -122,6 +122,11 @@ function setCoinsTask(taskRes) {
         coinsTaskSelfReport: taskRes.selfReport,
         coinsTaskComment: taskRes.comment
     }
+
+    if (coinsTask.coinsTaskTimeToSolution < 0) {
+        coinsTask.coinsTaskTimeToSolution = null;
+    }
+    
     gCoinsTask = coinsTask;
     // console.log('coins task:', gCoinsTask)
 }
@@ -136,6 +141,11 @@ function setStickTask(taskRes) {
         stickTaskSelfReport: taskRes.selfReport,
         stickTaskComment: taskRes.comment
     }
+
+    if (stickTask.stickTaskTimeToSolution < 0) {
+        stickTask.stickTaskTimeToSolution = null;
+    }
+
     gStickTask = stickTask;
     // console.log('stick task:', gStickTask)
 }

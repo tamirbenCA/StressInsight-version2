@@ -108,9 +108,9 @@ export default {
                 }
             });
             this.coinsAvg = Math.round(coinsTotal / coinsSuccess);
-            this.coinsSuccessRate = ((coinsSuccess / this.rawData.length) * 100)
+            this.coinsSuccessRate = Math.round((coinsSuccess / this.rawData.length) * 100)
             this.stickAvg = Math.round(stickTotal / stickSuccess);
-            this.stickSuccessRate = ((stickSuccess / this.rawData.length) * 100)
+            this.stickSuccessRate = Math.round((stickSuccess / this.rawData.length) * 100)
         }
     },
     computed: {

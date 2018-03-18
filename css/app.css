@@ -39,6 +39,10 @@ body {
     width: 50px;
 }
 
+.cell-3, .cell-1 {
+    transform: rotate(90deg)
+}
+
 .stick-cell {
     text-align: center;
 }

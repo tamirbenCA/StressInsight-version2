@@ -33,18 +33,30 @@ body {
 
 .stick-png {
     height: 50px;
+    padding: 2px;
 }
 
-.stick90-png {
-    width: 50px;
-}
 
 .cell-3, .cell-1 {
     transform: rotate(90deg)
 }
 
+.cell-4 > img:nth-child(1) {
+    transform: rotate(10deg);
+}
+
+.cell-4 > img:nth-child(2) {
+    transform: rotate(160deg);
+}
+
+.cell-4 > img:nth-child(3) {
+    margin-right: 7px; 
+}
+
 .stick-cell {
     text-align: center;
+    width: 70px;
+    height: 70px;
 }
 
 td {

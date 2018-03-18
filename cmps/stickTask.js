@@ -20,7 +20,7 @@ export default {
                         <img src="img/stick.png" :id="setImgId(0, 0)" class="stick-png" draggable="true" @dragstart="drag"/>
                     </td>
                     <td :class="setClassName(1)">
-                        <img src="img/stick.png" :id="setImgId(1, 0)" class="stick-png" style="paddingLeft: 5px" draggable="true" @dragstart="drag"/>
+                        <img src="img/stick.png" :id="setImgId(1, 0)" class="stick-png" draggable="true" @dragstart="drag"/>
                     </td>
                     <td :class="setClassName(2)">
                         <img src="img/stick.png" :id="setImgId(2, 0)" class="stick-png" draggable="true" @dragstart="drag"/>
@@ -28,13 +28,13 @@ export default {
                         <img src="img/stick.png" :id="setImgId(2, 2)" class="stick-png" draggable="true" @dragstart="drag"/>
                     </td>
                     <td :class="setClassName(3)">
-                        <img src="img/stick.png" :id="setImgId(3, 0)" class="stick-png" style="paddingRight:5px" draggable="true" @dragstart="drag"/>
-                        <img src="img/stick.png" :id="setImgId(3, 1)" class="stick-png" style="paddingRight:5px" draggable="true" @dragstart="drag"/>
+                        <img src="img/stick.png" :id="setImgId(3, 0)" class="stick-png" draggable="true" @dragstart="drag"/>
+                        <img src="img/stick.png" :id="setImgId(3, 1)" class="stick-png" draggable="true" @dragstart="drag"/>
                     </td>
                     <td :class="setClassName(4)">
-                        <img src="img/stick.png" :id="setImgId(4, 0)" class="stick-png" style="transform:rotate(10deg)" draggable="true" @dragstart="drag"/>                        
-                        <img src="img/stick.png" :id="setImgId(4, 1)" class="stick-png" style="transform:rotate(160deg)" draggable="true" @dragstart="drag"/>
-                        <img src="img/stick.png" :id="setImgId(4, 2)" class="stick-png" style="marginRight:7px" draggable="true" @dragstart="drag"/>
+                        <img src="img/stick.png" :id="setImgId(4, 0)" class="stick-png" draggable="true" @dragstart="drag"/>                        
+                        <img src="img/stick.png" :id="setImgId(4, 1)" class="stick-png" draggable="true" @dragstart="drag"/>
+                        <img src="img/stick.png" :id="setImgId(4, 2)" class="stick-png" draggable="true" @dragstart="drag"/>
                     </td>
                 </tr>
             </table>

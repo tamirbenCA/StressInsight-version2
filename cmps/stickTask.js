@@ -16,25 +16,8 @@ export default {
             <p v-if="taskState==='task-play'">פתור את התרגיל ע"י גרירת מקל אחד עם העכבר.</p>
             <table id="stick-table" @drop="drop" @dragover="allowDrop"  v-if="shouldShowTable">
                 <tr>
-                    <td :class="setClassName(0)">
-                        <img src="img/stick.png" :id="setImgId(0, 0)" class="stick-png" draggable="true" @dragstart="drag"/>
-                    </td>
-                    <td :class="setClassName(1)">
-                        <img src="img/stick.png" :id="setImgId(1, 0)" class="stick-png" draggable="true" @dragstart="drag"/>
-                    </td>
-                    <td :class="setClassName(2)">
-                        <img src="img/stick.png" :id="setImgId(2, 0)" class="stick-png" draggable="true" @dragstart="drag"/>
-                        <img src="img/stick.png" :id="setImgId(2, 1)" class="stick-png" draggable="true" @dragstart="drag"/>
-                        <img src="img/stick.png" :id="setImgId(2, 2)" class="stick-png" draggable="true" @dragstart="drag"/>
-                    </td>
-                    <td :class="setClassName(3)">
-                        <img src="img/stick.png" :id="setImgId(3, 0)" class="stick-png" draggable="true" @dragstart="drag"/>
-                        <img src="img/stick.png" :id="setImgId(3, 1)" class="stick-png" draggable="true" @dragstart="drag"/>
-                    </td>
-                    <td :class="setClassName(4)">
-                        <img src="img/stick.png" :id="setImgId(4, 0)" class="stick-png" draggable="true" @dragstart="drag"/>                        
-                        <img src="img/stick.png" :id="setImgId(4, 1)" class="stick-png" draggable="true" @dragstart="drag"/>
-                        <img src="img/stick.png" :id="setImgId(4, 2)" class="stick-png" draggable="true" @dragstart="drag"/>
+                    <td v-for="(col, j) in 5" :class="setClassName(j)">
+                        <img v-for="(stick, i) in sticks[j]" src="img/stick.png" :id="setImgId(j, i)" class="stick-png" draggable="true" @dragstart="drag"/>
                     </td>
                 </tr>
             </table>
@@ -74,6 +57,13 @@ export default {
     `,
     data() {
         return {
+            sticks: {
+                0: 1,
+                1: 1,
+                2: 3,
+                3: 2,
+                4: 3
+            },
             taskState: 'task-show',
             moveCount: 0,
             startTime: null,
